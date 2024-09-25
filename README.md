@@ -2223,3 +2223,12 @@ filtered_df.to_csv('AviationData_Modified.csv')
 
 The proposal has looked at civil aviation accidents and selected incidents in the United States and international waters from 2000 to 2023 to determine the models of aircrafts that are the lowest risk for a company to venture into the aviation industry with. Engine type and number of engines were found to influence the number of total fatal injuries following an accident/incident. Aircrafts with turbo fan engine type and 3 engines tend to be the lowest risk. The purpose of flying on the other hand, was inconclusive given the dataset provided was missing the frequency of flights. Thus, the company is open to trying different airline businesses such as business, positioning, Executive/Corporate, Aerial applications in which this these low risk aircraft operate. The proposal determined eight aircraft models under the dassault aviation, mcdonnell douglas and dassault-breguet makes which were low risk. Choice of model would be influenced by the line of business the company intends to venture into. Finally, there are additional considerations that the company needs to take into account which have not been touched on in this proposal, due to data limitations, such as purchase cost, servicing costs, servicing history, insurance costs as well as localising the data to the business environment that the company intends to operate in.  
 
+
+
+## Additional resources
+
+### Interactive Tableau Dashboard
+
+Follow the link below to access the interactive Tableau dashboard on this analysis:
+
+[View my Tableau Dashboard](https://public.tableau.com/app/profile/gerald.muhia/viz/AviationStudyInteractiveDashboard-GM/AviationStudyDashboard?publish=yes)
