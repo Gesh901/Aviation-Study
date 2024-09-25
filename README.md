@@ -1562,7 +1562,7 @@ ax.set_ylabel("Count");                                        #Inputs the y-axi
 
 
     
-![png](output_63_0.png)
+![Distribution of the number of engines](https://github.com/Gesh901/Aviation-Study/blob/master/output_63_0.png)
     
 
 
@@ -1587,7 +1587,7 @@ ax.set_ylabel("Count");                                            #Inputs the y
 
 
     
-![png](output_64_1.png)
+![Distribution of Total Fatalities](https://github.com/Gesh901/Aviation-Study/blob/master/output_64_1.png)
     
 
 
@@ -1613,7 +1613,7 @@ ax.set_title("Box Plot of Total Minor Injuries")
 
 
     
-![png](output_66_1.png)
+![Box Plot of Total Minor Injuries](https://github.com/Gesh901/Aviation-Study/blob/master/output_66_1.png)
     
 
 
@@ -1627,7 +1627,7 @@ ax.set_title("Box Plot of Total Uninjured");
 
 
     
-![png](output_67_0.png)
+![Box Plot of Total Uninjured](https://github.com/Gesh901/Aviation-Study/blob/master/output_67_0.png)
     
 
 
@@ -1717,7 +1717,7 @@ ax.legend();
 
 
     
-![png](output_74_1.png)
+![Trend of different categories of aircraft injuries](https://github.com/Gesh901/Aviation-Study/blob/master/output_74_1.png)
     
 
 
@@ -1740,7 +1740,7 @@ ax.legend();
 
 
     
-![png](output_76_0.png)
+![Trend of total uninjured after aircraft accident/incident](https://github.com/Gesh901/Aviation-Study/blob/master/output_76_0.png)
     
 
 
@@ -1942,7 +1942,7 @@ ax[1].tick_params(axis="x", labelrotation= 45);
 
 
     
-![png](output_83_0.png)
+![Side by side barcharts_Engine Type](https://github.com/Gesh901/Aviation-Study/blob/master/output_83_0.png)
     
 
 
@@ -1975,7 +1975,7 @@ ax[1].set_ylabel('No of Uninjured people');
 
 
     
-![png](output_85_0.png)
+![Side by side barcharts_No_of_Engines](https://github.com/Gesh901/Aviation-Study/blob/master/output_85_0.png)
     
 
 
@@ -2005,7 +2005,7 @@ ax.tick_params(axis="x", labelrotation= 90);
 
 
     
-![png](output_87_0.png)
+![Purpose of Flight bar graph ](https://github.com/Gesh901/Aviation-Study/blob/master/output_87_0.png)
     
 
 
