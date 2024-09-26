@@ -1,9 +1,9 @@
-# Proposal on low risk aircraft purchase
+# Proposal On Low Risk Aircraft Purchase
 
 ## Introduction
 
-This proposal aims to generate insights for business stakeholders in a company diversifying its portfolio into the aviation industry. Given the extensivess of the data sourced from the National Transportation Safety Booard from 1962 about civil aviation accidents and selected incidents in the United States and international waters, this proposal will focus on the data from 2000 onwards. This will provide a great balance between being recent enough to reflect modern technology and safety regulations as well as long enough to capture meaningful data relating to the accidents/incidents. The proposal looks at various
-relationships present in the data such as engine type and incidences of fatal injuries which feed into the business recommendations centered around reduced liability for the company. Finally, the report concludes highlighting additional considerations not present in the proposal that the company needs to take into account.
+This proposal aims to generate insights for business stakeholders in a company diversifying its portfolio into the aviation industry. Given the extensivess of the data sourced from the National Transportation Safety Board from 1962 on civil aviation accidents and selected incidents in the United States and international waters, this proposal will focus on the data from 2000 onwards. This will provide a great balance between being recent enough to reflect modern technology and safety regulations as well as long enough to capture meaningful data relating to the accidents/incidents. The proposal looks at various
+relationships present in the data such as engine type and incidences of fatal injuries which feed into the business recommendations centered around purchase of aircrafts which will lead to reduced liability for the company. Finally, the report concludes highlighting additional considerations not present in the proposal that the company needs to take into account.
 
 The proposal is split into the following sections:
 
@@ -16,10 +16,10 @@ The proposal is split into the following sections:
 
 ## Business Problem
 
-The company would like to expand in to new industries to diversify its portfolio. Specifically, the company is interested in purchasing and operating airplanes for commercial and private enterprises, but do not know anything about the potential risks of aircraft. This proposal will aim to determine which models of aircraft are the lowest risk for the company to start this new business endeavor as well as translate findings into actionable insights that the head of the new aviation division can use to help decide which aircraft to purchase.
+A company is interested in purchasing and operating airplanes for commercial and private enterprises, but does not know anything about the potential risks of aircraft. This proposal will aim to determine which models of aircraft are the lowest risk for the company to start this new business endeavor as well as translate findings into actionable insights that the head of the company's new aviation division can use to help decide which aircraft to purchase.
 
 ## Data
-Data used for this analysis is sourced from the National Transportation Safety Board that includes aviation accident data from 1962 to 2023 about civil aviation accidents and selected incidents in the United States and international waters. This data can be found in `AviationData.csv`.
+Data used for this analysis is sourced from the National Transportation Safety Board that includes aviation accident data from 1962 to 2023 on civil aviation accidents and selected incidents in the United States and international waters. This data can be found in `AviationData.csv`.
 
 
 
@@ -36,7 +36,7 @@ We will use data cleaning, imputation, analysis, and visualizations to generate 
 ###  1. Importing the data
 
 
-To begin, we'll start by importing all the necessary libraries needed for this analysis. These are listed below:
+To begin, we'll import all the necessary libraries needed for this analysis. These are listed below:
 
 - **Pandas** - This library will assist with the manipulation of data in the DataFrame
 - **Numpy** - This library will enable us to compute mathematical and statistical functions.
@@ -463,9 +463,9 @@ aviation_df.info()
     memory usage: 21.0+ MB
     
 
-From the summary above, we can see that all the columns are `string` data type. Moreover, columns such as `Latitude` and `Longitude` have a lot of missing entries. Thus, we need to generate a dataframe that we will use for this analysis without altering the data that has been imported already. The new dataframe will be called `modified_aviation_df`.
+From the summary above, we can see that all the columns are `string` data type. Moreover, columns such as `Latitude` and `Longitude` have a lot of missing entries. Thus, we need to generate a dataframe that we will use for this analysis without altering the data that has been imported already in case we might need to get back to it. The new dataframe will be called `modified_aviation_df`.
 
-Also column names are separated by a full stop which might make it a bit confusing when using some of the python functions later on. Therefore, we will begin by modifying the column names and replacing the full stops with underscores.
+In addition, column names are separated by a full stop which might make it a bit confusing when using some of the python functions later on. Therefore, we will begin by modifying the column names and replacing the full stops with underscores.
 
 
 ```python
@@ -638,7 +638,7 @@ modified_aviation_df.head()
 
 ####  1.2. Selecting data subset to be used in the proposal
 
-Now that the column names are clear, we can select the subset of data we are dealing with. As mentioned earlier we are only interested in the following columns for our analysis:
+Now that the column names are clear, we can select the subset of data which include only columns of interest listed below:
 
 - `Make`
 - `Model`
@@ -810,7 +810,7 @@ modified_aviation_df_2.info()
 
 ### 2. Dealing with missing and unknown data
 
-From the summary above, the dataframe is missing a lot of values in some of the columns. We will approach this section by dividing the columns based on whether they are:
+As has been observed, the modified dataframe `modified_aviation_df_2` is missing a lot of values in some of the columns. We will approach this section by dividing the columns based on whether they are:
 - Categorical
 - Numerical
 
@@ -818,7 +818,7 @@ From the summary above, the dataframe is missing a lot of values in some of the 
 
 #####  a. Dealing with missing values
 
-We will begin by eliminating the null values in the following categorical columns as it will be a small subset of rows and hence won't have much of an impact on the analysis given the large dataset:
+We will begin by eliminating the null values in the following categorical columns as it won't have much of an impact on the analysis given the large dataset:
  - `Make`
  - `Model`
  - `Aircraft Damage`
@@ -1098,7 +1098,7 @@ modified_aviation_df_2["Engine_Type"].value_counts()
 
 
 
-Now that all the entries in the `Engine_Type` column are now lower case, next steps is to eliminate all the "unknown" ,"none", "unk" and "lr" entries as shown below:
+Now that all the entries in the `Engine_Type` column are now lower case, next step is to eliminate all the "unknown" ,"none", "unk" and "lr" entries as shown below:
 
 
 ```python
@@ -1251,7 +1251,7 @@ modified_aviation_df_2.info() #provided a summary of the updated dataframe
 
 ####  2.2. Numerical Columns
 
-From the summary above, we can observe that all the column types are of datatype "object". However, there are certain columns such as `Event_date`, `Total_Fatal_Injuries`, `Total_Serious_Injuries`, `Total_Minor_Injuries` and `Total_Uninjured` which have been classified as `object` but need to be `float` or `datetime` data types. 
+From the summary above, we can observe that all the column types are of datatype `object`. However, there are certain columns such as `Event_date`, `Total_Fatal_Injuries`, `Total_Serious_Injuries`, `Total_Minor_Injuries` and `Total_Uninjured` which have been classified as `object` but need to be `float` or `datetime` data types. 
 
 ##### a. Converting the data types of the numerical columns
 
@@ -1285,7 +1285,7 @@ modified_aviation_df_2['Number_of_Engines']=pd.to_numeric(modified_aviation_df_2
 
 ```
 
-Next step is to convert the `Event_Date` column to datetime format as shown below:
+Following this, we convert the `Event_Date` column to datetime format as shown below:
 
 
 ```python
@@ -1357,13 +1357,13 @@ modified_aviation_df_2.isna().sum()
 
 
 
-The numerical columns seem to have a sizeable number of missing values. `Total_Serious_Injuries` looks to be leading with the highest number of missing values while `Number_of_Engines` has the least. 
+The numerical columns have a sizeable number of missing values. `Total_Serious_Injuries` has the highest number of missing values while `Number_of_Engines` has the least. 
 
-As we don't want to lose a sizeable chunk of the data, we are going to replace the missing data with the most appropriate central measure of tendency. To determine the best measure of central tendency, we will first begin by checking for outliers.
+As we don't want to lose a sizeable chunk of the data, we are going to replace the missing data with the most appropriate central measure of tendency. To determine the best measure of central tendency, we first begin by checking for outliers.
 
 - **Check for outliers**
 
-We will create a new dataframe and call it `modified_aviation_df_3` . Within this dataframe, we will include only the columns with null values. The main reason for doing this analysis separately is to allow us to calculate the appropriate measure of central tendency without having to alter the already cleaned data thus far.
+We create a new dataframe and call it `modified_aviation_df_3` . Within this dataframe, we include only the columns with null values. The main reason for doing this analysis separately is to allow us to calculate the appropriate measure of central tendency without having to alter the already cleaned data thus far.
 
 
 ```python
@@ -1440,7 +1440,7 @@ modified_aviation_df_3.head()                   #Top 5 entries of the newly gene
 
 
 
-We will now proceed with removing all the null values in the dataframe and obtain the summary statistics.
+We now proceed with removing all the null values in the dataframe and obtain the summary statistics.
 
 
 ```python
@@ -1543,11 +1543,11 @@ modified_aviation_df_3.describe()
 
 
 
-Once we've dropped the null entries, we can see that all these columns are positively skewed. Also the difference between the min and max entries is quite large in all the columns . From this initial analysis, it seems the median would be the best substitute for these missing values but we will have a look at box plots and histograms of these columns just to be sure
+Once we've dropped the null entries, we observe that all these columns are positively skewed. Also the difference between the min and max entries are quite large in all the columns . It does seem the median would be the best substitute for these missing values butjust to be sure, we'll look at box plots and histograms of these columns.
 
 - `Number_of_Engines` **and** `Total_Fatal_Injuries`
 
-For these columns, we will look at histograms of the column data to observe the distribution. It does seem that majority of the entries are centered around the median and that no significant outliers are present.
+For these columns, we plot histograms to observe theor distribution. It does seem that majority of the entries are centered around the median and that no significant outliers are present.
 
 
 ```python
@@ -1631,7 +1631,7 @@ ax.set_title("Box Plot of Total Uninjured");
     
 
 
-Given the findings from the summary table above as well as the boxplots and histographs, we will proceed with replacing all the null values in our numerical columns with their corresponding median. To do so, we will go back to the dataframe `modified aviation_2` which contained our null values and fill them with the median value.
+Given the findings from the summary table above as well as the boxplots and histographs, we replace all the null values in our numerical columns with their corresponding median  values. To do so, we will go back to our modified dataframe `modified aviation_2` which contained our null values and fill them with this median value.
 
 
 ```python
@@ -1655,7 +1655,7 @@ modified_aviation_df_2['Total_Uninjured']=modified_aviation_df_2["Total_Uninjure
 
 ```
 
-Finally, let's check that these changes have been effected. From the summary below, we can observe that all the columns are now updated with the changes and the data is now ready for analysis.
+Finally, let's check that these changes have been effected. From the summary below, all the columns are now updated with the changes and the data is now ready for analysis.
 
 
 ```python
@@ -1686,7 +1686,7 @@ modified_aviation_df_2.info()
 
 ### 3. Analysis and Visualizations
 
-Now that the data has been cleaned, we will now proceed with the analysis. As the data spans a long period i.e. 1962 -2023, we need to have a look at how the aviation accidents are spread out during this period. Also, this will determine the appropriate time frame to base our study on. To assist us with this we will plot the following graphs:
+Analysis can be done now that the data has been cleaned. As the data spans a long period i.e. 1962 -2023, investigate how the aviation accidents are spread out during this period to determine the appropriate time frame to base our study on. To assist us with this are the following plots:
 
 - Time series of total injuries( fatal, serious and minor)
 - Time series of total uninjured
@@ -1721,7 +1721,7 @@ ax.legend();
     
 
 
-From the graph above, it seems that there were a lot more aviation accidents/incidents in the 1980s to the late 1990s which resulted in higher fatal and serious injuries. This trend seems to have changed at the turn of the millenium . There could have been an implementation of major safety regulations which saw a major shift in air safety culture following high profile crashes. Similarly from the trend of the total uninjured below, we see a lot more spikes in the 1980s and 1990s as opposed to the post 2000 period. This implies there have been less aviation accidents/incidents in the post 2000 period which corroborates our findings as aforementioned. 
+From the graph above, there were a lot more aviation accidents/incidents in the 1980s to the late 1990s which resulted in higher fatal and serious injuries. This trend seems to have changed at the turn of the millenium. There could have been an implementation of major safety regulations which saw a major shift in air safety culture following high profile crashes. Similarly from the trend of the total uninjured below, we see a lot more spikes in the 1980s and 1990s as opposed to the post 2000 period. This implies there have been less aviation accidents/incidents in the post 2000 period which corroborates our findings as aforementioned. 
 
 
 ```python
@@ -1744,11 +1744,11 @@ ax.legend();
     
 
 
-As a result, we will only use the data from 2000 to date. This will provide us with a good balance between being recent enough to reflect modern technology and safety regulations as well as long enough to capture meaningful data relating to the accidents/incidents. 
+As a result, we will use the data from 2000 to 2023 for our study. This will provide us with a good balance between being recent enough to reflect modern technology and safety regulations as well as long enough to capture meaningful data relating to the accidents/incidents. 
 
 #### Generating new dataset for the period (2000 - 2023)
 
-The new dataset is generated by filtering the event date i.e. where the event date is later than 1 Jan 2000.
+The new dataset `filtered_df` is generated by filtering the event date i.e. where the event date is later than 1 Jan 2000.
 
 
 ```python
@@ -1870,7 +1870,7 @@ filtered_df.head()
 
 
 
-As always, it's great to have a summary of the newly created dataframe. We can obsere that the number of rows have reduced to roughly 26,000 from the 63,500 rows we started with. Also, all the characteristics of the columns are as expected so we will delve deep into the data and establish the relationships between the various aircraft characterictics and injuries.
+As always, it's great to have a summary of the newly created dataframe `filtered_df`. We can observe that the number of rows have reduced to roughly 26,000 from the 63,500 rows we started with in `modified_aviation_df_2`. Also, all the characteristics of the columns are as expected so we will delve deep into the data to establish the relationships between the various aircraft characterictics and Total Fatal injuries as well as  Total Uninjured.
 
 
 ```python
@@ -1921,7 +1921,7 @@ We will plot two barcharts side by side to check if there is any relationship be
 
 
 ```python
-# Side by side bar chart to show comparison if the fatal injuries and uninjured persons vs engine type  
+# Side by side bar charts to show comparison of fatal injuries and uninjured persons vs engine type  
 
 fig, ax = plt.subplots(1,2, figsize = (12,8))
 
@@ -1950,7 +1950,7 @@ As can be observed,  the **turbo fan** engine had the highest number of uninjure
 
 #### 2. Relationship between Total Fatal Injuries & Total Uninjured and No. of Engines
 
-As we have determined that the engine type plays a role in the number of fatal injuries, we will take it a notch higher and check for any relationship between fatal injuries, uninjured and no. of engines. Similarly, to assist with this analysis, two barcharts will be plotted side by side as highlighted below:
+As we have determined that the engine type plays a role in the number of fatal injuries, we'll take it a notch higher and check for any relationship between fatal injuries, uninjured and no. of engines. Similarly, to assist with this analysis, two barcharts will be plotted side by side as highlighted below:
 
 
 
@@ -2009,18 +2009,18 @@ ax.tick_params(axis="x", labelrotation= 90);
     
 
 
-From the bargraph above, we can observe that personal flying had the highest incidences of fatal injuries with 14 fatal injuries followed by sky diving with 11 fatal injuries. Business and Executive /Corportae are tied at third place with 11 fatal injuries. Another interesting observation is nstructional,observation and aerial observation seem to be tied at 5 fatal injuries.
+From the bargraph above, we can observe that personal flying had the highest incidences of fatal injuries with 14 fatal injuries followed by sky diving with 11 fatal injuries. Business and Executive /Corportae are tied at third place with 11 fatal injuries. Similarly, instructional,observation and aerial observation look to be tied at 5 fatal injuries.
 
-Something to note is that causality is not always causation. It could mean that there a lot more people using planes for personal reasons leading to more fatal injuries. However, it is difficult to deduce this given the nature of the dataset that we are dealing with.
+Finally, interesting observation that there are a lot more people suffering fatal injuries due to using planes for personal reasons compared to risky ventures such as skydiving.
 
 ## Business Recommendation
 
 
-The business recommendations are based on the data provided and the analysis done on the data. Please note, other considerations such as purchase cost, servicing costs, insurance costs etc will not be not taken into account as they were no present in the data used for this analysis. The recommendations are centered on passenge safetyy and reduced liability to the company in the event of an accident/incident.
+The business recommendations are based on the data provided and the analysis done on the data. Please note other considerations such as purchase cost, servicing costs, insurance costs etc will not be not taken into account as they were no present in the data used for this analysis. The recommendations are centered on passenge safetyy and reduced liability to the company in the event of an accident/incident.
 
-The following are the business recommendations for the company:
+Below are the business recommendations for the company based on data analysis performed:
 
-- **Engine Type**: The company should go for an aircraft with a turbo fan engine. From the analysis, this is the safest engine with the highest number of persons uninjured following an aviation incident/accident. Even though it wasn't the lowest in terms of fatal injuries, there was a really small difference with the engine with the least fatal injuries, the turbo jet engine.
+- **Engine Type**: The company should go for an aircraft with a turbo fan engine. From the analysis, this is the safest engine with the highest number of persons uninjured following an aviation incident/accident. Even though it wasn't the lowest in terms of fatal injuries, there was a really small difference observed when compared with the engine with the least fatal injuries, the turbo jet engine.
 
 
 - **No of Engines**: The company should invest in an aircraft that has 3 engines. We have seen from the analysis that this is the engine that offers the perfect combination i.e has the lowest number of fatal injuries and the highest number of uninjured persons in the event of an accident/incident. As a company making an entry into the aviation industry, this would limit its liability and minimize the probability of huge payoffs in the event of an accident/incident.
@@ -2031,15 +2031,15 @@ The following are the business recommendations for the company:
          - Positioning
          - Executive/Corporate
          - Aerial Application
-Main reason behind these choices is that the planes that meeet the first two business recommendations tend to operate in these businesses. Given the company is a new entrant to the aviation industry and the scope of the data used in the analysis, it would be prudent to observe and research on these different flying business ventures from existing players to determine which of the above choices would suit it the best. 
+Main reason behind these choices is that the planes that meeet the first two business recommendations tend to operate in these businesses. Given the company is a new entrant to the aviation industry and the scope of the data used in the analysis, it would be prudent to observe and research on these different flying business ventures from existing players to determine which of the above choices would suit it the best. Also, these ventures were observed to have lower fatal injuries when compared to other lines of businesses such as planes for personal hire or skydiving.
       
-Finally, based on the three recommendations above, the following aircraft makes fit the bill for the company to venture into the aviation industry with:
+Finally, based on the three recommendations above, the following makes of aircraft fit the bill for the company to venture into the aviation industry with:
 
     - Dassault Aviation
     - Mcdonell Douglas
     - Dassault Bregguet
     
-  The choice of model will depend on the aircraft business venture that the company would like to get into. Here's a summary table below: 
+  The choice of model will depend on the aircraft business venture that the company would like to get into. Here's a summary table below thats shows the recommended low-risk aircraft makes and models that the company should consider purchasing: 
  
  **Note**: Assumption made that the aircraft will be insured hence aircraft damage will always be handled by the insurance company. 
  
@@ -2221,7 +2221,7 @@ filtered_df.to_csv('AviationData_Modified.csv')
 
 ## Conclusion:
 
-The proposal has looked at civil aviation accidents and selected incidents in the United States and international waters from 2000 to 2023 to determine the models of aircrafts that are the lowest risk for a company to venture into the aviation industry with. Engine type and number of engines were found to influence the number of total fatal injuries following an accident/incident. Aircrafts with turbo fan engine type and 3 engines tend to be the lowest risk. The purpose of flying on the other hand, was inconclusive given the dataset provided was missing the frequency of flights. Thus, the company is open to trying different airline businesses such as business, positioning, Executive/Corporate, Aerial applications in which this these low risk aircraft operate. The proposal determined eight aircraft models under the dassault aviation, mcdonnell douglas and dassault-breguet makes which were low risk. Choice of model would be influenced by the line of business the company intends to venture into. Finally, there are additional considerations that the company needs to take into account which have not been touched on in this proposal, due to data limitations, such as purchase cost, servicing costs, servicing history, insurance costs as well as localising the data to the business environment that the company intends to operate in.  
+The proposal has looked at civil aviation accidents and selected incidents in the United States and international waters from 2000 to 2023 to determine the models of aircrafts that are the lowest risk for a company to venture into the aviation industry with. Engine type and number of engines were found to influence the number of total fatal injuries following an accident/incident. Aircrafts with turbo fan engine type and three engines were observed to be the lowest risk. The purpose of flying on the other hand, showed that personal flying was the leading cause of a lot of fatal injuries. Thus, the company is open to trying different airline businesses such as Business, Positioning, Executive/Corporate, Aerial applications in which this these low risk aircraft operate. The proposal determined eight aircraft models under the Dassault aviation, Mcdonnell douglas and Dassault-breguet makes which were low risk aircrafts ideal for the company to purchase. Choice of model would be influenced by the line of business the company intends to venture into. Finally, there are additional considerations that the company needs to take into account which have not been touched on in this proposal, due to data limitations, such as purchase cost, servicing costs, servicing history, insurance costs as well as localising the data to the business environment that the company intends to operate in.  
 
 
 
